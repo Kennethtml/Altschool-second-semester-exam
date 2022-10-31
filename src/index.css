@@ -30,7 +30,7 @@ nav{
 
 .profile{
   width: 35%;
-  min-width: 400px;
+  /* min-width: 400px; */
   /* border: 1px solid #000; */
   border-radius: 5px;
   /* box-shadow: 0 2px 0 2px #171718; */
@@ -39,6 +39,11 @@ nav{
   background:#18181d;
   overflow: hidden;
 
+}
+@media(max-width:400px){
+  .profile{
+    width: 90%;
+  }
 }
 .profile .image{
    height: 250px;
