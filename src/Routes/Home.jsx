@@ -1,6 +1,8 @@
 import React from 'react'
 import {useEffect,useState} from 'react'
 import { Link } from 'react-router-dom'
+import {BiGitRepoForked} from 'react-icons/bi'
+import { SlUserFollowing, SlUserFollow } from "react-icons/sl";
 
 function Home() {
  
@@ -22,9 +24,17 @@ function Home() {
           <h1 className="username">{user?.name}</h1>
           <p className="fullname">{user?.login}</p>
           {/* <p className="fullname">{user?.bio}</p> */}
-          <p className="followers">Followers: {user?.followers}</p>
-          <p className="followers">Followers: {user?.following}</p>
-          <p className="public_repos">Public repos: {user?.public_repos}</p>
+          <p className="followers">
+            <SlUserFollow />
+            Followers: <span>{user?.followers}</span>
+          </p>
+          <p className="followers">
+            <SlUserFollowing />
+            Following: <span>{user?.following}</span>
+          </p>
+          <p className="public_repos">
+            <BiGitRepoForked /> Public repos: <span>{user?.public_repos}</span>
+          </p>
           <Link className="btn-link" to={"/repos"}>
             View repos
           </Link>

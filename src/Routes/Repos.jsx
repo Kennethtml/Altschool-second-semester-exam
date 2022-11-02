@@ -4,12 +4,12 @@ import RepoPage from "./RepoPage";
 
 function Repos() {
   return (
-    <div className="l">
+    <main >
       <Routes>
         <Route index element={<ReposComponenet/>} />
         <Route path=":name" element={<RepoPage />} />
       </Routes>
-    </div>
+    </main>
   );
 }
 

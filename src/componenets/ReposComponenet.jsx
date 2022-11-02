@@ -3,6 +3,7 @@ import { useState, useEffect,useContext} from "react";
 import {  Link } from "react-router-dom";
 import { ReposContext } from "../reposContext";
 import ReturnButton from "./ReturnButton";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 
 
@@ -23,19 +24,21 @@ function ReposComponenet() {
 
 
   return (
-    <div className="repos">
+    <secion className="repos-container">
         <ReturnButton/>
-     
+     <div className="repos">
+
       {currentRepos?.map((repo) => {
-        return (
-          <Link className="repo" to={repo.name}>
-            <p className="name">{repo.name}</p>
+          return (
+              <Link className="repo" to={repo.name}>
+            <h3 className="name">{repo.name}</h3>
             <p className="description">{repo.description}</p>
             {/* <p className="description">{repo.description}</p> */}
             <p className="language">{repo.language}</p>
           </Link>
         );
-      })}
+    })}
+    </div>
 
       <div className="pagination">
         <div className="buttons">
@@ -45,7 +48,7 @@ function ReposComponenet() {
             disabled={currentPage <= 1}
             aria-disabled={currentPage <= 1}
           >
-            previous
+           <FaAngleLeft/>
           </button>
           <button
             className="previous"
@@ -53,7 +56,7 @@ function ReposComponenet() {
             disabled={currentPage >= toTal}
             aria-disabled={currentPage >= toTal}
           >
-            next
+           <FaAngleRight/>
           </button>
         </div>
         <div className="pages">
@@ -74,7 +77,7 @@ function ReposComponenet() {
           })}
         </div>
       </div>
-    </div>
+    </secion>
   );
 }
 

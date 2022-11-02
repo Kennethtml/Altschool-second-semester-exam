@@ -7,6 +7,7 @@ import Home from './Routes/Home';
 import Repos from './Routes/Repos';
 import RepoPage from './Routes/RepoPage';
 import Navigation from './componenets/Navigation';
+import Footer from './componenets/Footer';
 
 
 function App() {
@@ -18,6 +19,7 @@ return (
       <Route path="/repos/*" element={<Repos />} />
     
     </Routes>
+    <Footer/>
   </div>
 );
  
