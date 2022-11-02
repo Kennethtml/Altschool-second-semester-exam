@@ -1,12 +1,13 @@
 import React from "react";
 import { useState, useEffect,useContext} from "react";
-import { useNavigate, Link } from "react-router-dom";
+import {  Link } from "react-router-dom";
 import { ReposContext } from "../reposContext";
-import {FaLongArrowAltLeft} from 'react-icons/fa'
+import ReturnButton from "./ReturnButton";
+
 
 
 function ReposComponenet() {
-  const navigate = useNavigate();
+ 
 
   const {repos}=useContext(ReposContext)
   //extract the repos array by consuming the context
@@ -20,11 +21,11 @@ function ReposComponenet() {
   let currentRepos=repos.slice(startingIndex,endingIndex)
   let toTal = Math.ceil(repos.length / perPage);
 
+
   return (
     <div className="repos">
-      <button className="return-btn" onClick={() => navigate(-1)}>
-        <FaLongArrowAltLeft />
-      </button>
+        <ReturnButton/>
+     
       {currentRepos?.map((repo) => {
         return (
           <Link className="repo" to={repo.name}>
