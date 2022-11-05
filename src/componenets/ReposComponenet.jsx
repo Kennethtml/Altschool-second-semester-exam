@@ -10,8 +10,8 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 function ReposComponenet() {
  
 
-  const {repos}=useContext(ReposContext)
-  //extract the repos array by consuming the context
+    //extract the repos array by consuming the context
+    const {repos}=useContext(ReposContext)
 
 
   //set up pagination
@@ -42,6 +42,7 @@ function ReposComponenet() {
 
       <div className="pagination">
         <div className="buttons">
+
           <button
             className="previous"
             onClick={() => setCurrentPage(currentPage - 1)}
@@ -50,6 +51,7 @@ function ReposComponenet() {
           >
            <FaAngleLeft/>
           </button>
+
           <button
             className="previous"
             onClick={() => setCurrentPage(currentPage + 1)}
@@ -58,6 +60,7 @@ function ReposComponenet() {
           >
            <FaAngleRight/>
           </button>
+
         </div>
         <div className="pages">
           {new Array(toTal).fill().map((_, idx) => {

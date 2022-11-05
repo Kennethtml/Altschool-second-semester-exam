@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import ReturnButton from "../componenets/ReturnButton";
 import { ReposContext } from "../reposContext";
+import { Helmet } from "react-helmet-async";
 
 
 function RepoPage() {
@@ -16,6 +17,8 @@ function RepoPage() {
       .then((data) => data.json())
       .then((res) => setSelectedRepo(res));
   }, [language]);
+
+
   useEffect(() => {
     fetch(
       "https://api.github.com/repos/Kennethtml/" + params.name + "/languages"
@@ -40,30 +43,40 @@ function RepoPage() {
   let languages = language && setLanguagepercentage(language);
   console.log(languages);
   return (
-    <main className="selected-repo">
-      <ReturnButton />
-      <h1>{selectedRepo.name}</h1>
-      <h4>{selectedRepo.owner?.login}</h4>
-      <p className="repo-descripion">{selectedRepo.description}</p>
-      <p className="created">{selectedRepo.created_at}</p>
-      <p className="size">Repo size: {selectedRepo.size} kb</p>
-      <p className="languages">
-        {languages?.map((language) => {
-          return (
-            <p key={Object.keys(language)[0]}>
-              <span>{Object.keys(language)[0]}</span>
+    <>
+      <Helmet>
+        <title>{selectedRepo.name}</title>
+        <meta
+          name="description"
+          content={selectedRepo.description}
+        />
+        <link rel="canonical" href={"/"+selectedRepo.name} />
+      </Helmet>
+      <main className="selected-repo">
+        <ReturnButton />
+        <h1>{selectedRepo.name}</h1>
+        <h4>{selectedRepo.owner?.login}</h4>
+        <p className="repo-descripion">{selectedRepo.description}</p>
+        <p className="created">{selectedRepo.created_at}</p>
+        <p className="size">Repo size: {selectedRepo.size} kb</p>
+        <p className="languages">
+          {languages?.map((language) => {
+            return (
+              <p key={Object.keys(language)[0]}>
+                <span>{Object.keys(language)[0]}</span>
 
-              <span>{Object.values(language)[0] + "%"}</span>
-              <br />
-            </p>
-          );
-        })}
-      </p>
-      <a className="btn" href={selectedRepo.html_url}>
-        {" "}
-        go to repo
-      </a>
-    </main>
+                <span>{Object.values(language)[0] + "%"}</span>
+                <br />
+              </p>
+            );
+          })}
+        </p>
+        <a className="btn" href={selectedRepo.html_url}>
+          {" "}
+          go to repo
+        </a>
+      </main>
+    </>
   );
 }
 

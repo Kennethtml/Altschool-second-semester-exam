@@ -139,6 +139,7 @@ nav a{
    display: flex;
   flex-direction: column;
   flex: 1;
+  
 }
 .return-btn{
   border: none;
@@ -148,6 +149,7 @@ nav a{
 
 .repo{
   /* border: 1px solid #000; */
+  /* border: 2px solid #868686; */
   margin-bottom: 20px;
   min-height: 112px;
   display: block;
@@ -160,7 +162,7 @@ nav a{
   box-shadow: 0px 1px 2px 0px rgba(79,52,52,0.35);
 }
 .repo .name{
-  font-weight: 600;
+  font-weight: 400;
 }
 .repo p{
   color: #868686;
