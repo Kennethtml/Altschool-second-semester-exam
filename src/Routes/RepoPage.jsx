@@ -53,7 +53,10 @@ function RepoPage() {
         <link rel="canonical" href={"/"+selectedRepo.name} />
       </Helmet>
       <main className="selected-repo">
+        <div className="btn-wrapper">
+
         <ReturnButton />
+        </div>
         <h1>{selectedRepo.name}</h1>
         <h4>{selectedRepo.owner?.login}</h4>
         <p className="repo-descripion">{selectedRepo.description}</p>

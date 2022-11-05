@@ -9,6 +9,7 @@ import RepoPage from './Routes/RepoPage';
 import Navigation from './componenets/Navigation';
 import Footer from './componenets/Footer';
 import ErrorPage from './Routes/ErrorPage';
+import ErrorBoundary from './Routes/ErrorBoundary';
 
 
 function App() {
@@ -18,6 +19,7 @@ return (
     <Routes>
       <Route index element={<Home />} />
       <Route path="/repos/*" element={<Repos />} />
+      <Route path='/error-boundary' element={<ErrorBoundary/>} />
       <Route path='*' element={<ErrorPage/>}/>
     
     </Routes>

@@ -25,31 +25,31 @@ function ReposComponenet() {
 
   return (
     <secion className="repos-container">
-        <ReturnButton/>
-     <div className="repos">
-
-      {currentRepos?.map((repo) => {
+      <div className="btn-wrapper">
+        <ReturnButton />
+      </div>
+      <div className="repos">
+        {currentRepos?.map((repo) => {
           return (
-              <Link className="repo" to={repo.name}>
-            <h3 className="name">{repo.name}</h3>
-            <p className="description">{repo.description}</p>
-            {/* <p className="description">{repo.description}</p> */}
-            <p className="language">{repo.language}</p>
-          </Link>
-        );
-    })}
-    </div>
+            <Link className="repo" to={repo.name}>
+              <h3 className="name">{repo.name}</h3>
+              <p className="description">{repo.description}</p>
+              {/* <p className="description">{repo.description}</p> */}
+              <p className="language">{repo.language}</p>
+            </Link>
+          );
+        })}
+      </div>
 
       <div className="pagination">
         <div className="buttons">
-
           <button
             className="previous"
             onClick={() => setCurrentPage(currentPage - 1)}
             disabled={currentPage <= 1}
             aria-disabled={currentPage <= 1}
           >
-           <FaAngleLeft/>
+            <FaAngleLeft />
           </button>
 
           <button
@@ -58,9 +58,8 @@ function ReposComponenet() {
             disabled={currentPage >= toTal}
             aria-disabled={currentPage >= toTal}
           >
-           <FaAngleRight/>
+            <FaAngleRight />
           </button>
-
         </div>
         <div className="pages">
           {new Array(toTal).fill().map((_, idx) => {

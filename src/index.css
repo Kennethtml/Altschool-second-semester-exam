@@ -34,6 +34,29 @@ nav{
   border-bottom: 2px solid rgba(0, 0, 0, 0.521);
  
 }
+.error-container{
+   width:90%;
+  margin-inline: auto;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100vh - 185px);
+}
+.error-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.error-code{
+  color:#1570EF;
+  font-weight: 600;
+}
+.error-buttons{
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
 nav a{
    text-decoration: none;
    color: inherit;
@@ -143,8 +166,21 @@ nav a{
 }
 .return-btn{
   border: none;
-  font-size: 40px;
+  font-size: 16px;
+  font-family: inherit;
   display: flex;
+  background: #fff;
+  border: 1px solid #7d7b7b;
+  border-radius: 8px;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  align-self: flex-start;
+ 
+}
+.btn-wrapper{
+   margin-bottom: 10px;
 }
 
 .repo{
