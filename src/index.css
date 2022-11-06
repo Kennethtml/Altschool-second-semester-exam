@@ -6,11 +6,13 @@
 }
 body{
   font-family: 'Poppins', sans-serif;
+    background-color: #ebebeb;
 }
 .container{
   background-color: #ebebeb;
   max-width: 1440px;
  min-height: 100vh;
+ margin-inline:auto;
   
 }
 .btn{
@@ -166,16 +168,16 @@ nav a{
 }
 .return-btn{
   border: none;
-  font-size: 16px;
+  font-size: clamp(16px 14px 12px);
   font-family: inherit;
   display: flex;
   background: #fff;
   border: 1px solid #7d7b7b;
   border-radius: 8px;
-  padding: 16px 32px;
+  padding: 1.5vw 3vw;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1.5vw;
   align-self: flex-start;
  
 }
@@ -277,14 +279,20 @@ button:hover{
   gap: 1.5rem;
   min-height: 100vh;
 }
-
+.selected-repo>p span,.languages>span {
+  font-weight: bold;
+}
+.selected-repo h1{
+  color:gray;
+  font-weight: 300;
+}
 .languages{
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
 }
 .languages p >*:nth-child(2){
-  font-weight: bold;
+  font-weight: 300;
   margin-left: .3rem;
 }
 

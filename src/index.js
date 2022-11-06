@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { ReposProvider } from "./reposContext";
 import { HelmetProvider } from "react-helmet-async";
+import Fallback from "./componenets/Fallback";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -28,10 +29,9 @@ class ErrorBoundary extends React.Component {
     if (this.state.hasError) {
       // You can render any custom fallback UI
       return (
-        <div>
-          <h1>Something went wrong.</h1>
-          {/* <p>{this.state.error.message}</p> */}
-        </div>
+       <>
+       <Fallback/>
+       </>
       );
     }
 

@@ -1,11 +1,11 @@
 import React from 'react'
 
-function ErrorBoundary({user}) {
+function ErrorComponent({user}) {
   return (
-    <div>
+    <div >
         {user.toUpperCase}
         </div>
   )
 }
 
-export default ErrorBoundary
+export default ErrorComponent

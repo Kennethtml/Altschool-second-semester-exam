@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet-async';
 function Home() {
  
    useEffect(()=>{
-    fetch('https://api.github.com/users/Kennethtml')
+    fetch('https://api.github.com/users/kennethtml')
     .then(res=>res.json())
     .then(data=>setUser(data))
   },[])
