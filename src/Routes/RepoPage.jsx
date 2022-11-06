@@ -8,15 +8,17 @@ import { Helmet } from "react-helmet-async";
 import Star from "../assets/Star";
 import Fork from "../assets/fork";
 
+
 function RepoPage() {
   const params = useParams();
   const [selectedRepo, setSelectedRepo] = useState([]);
   const [language, setLanguage] = useState(null);
+  const{user}=useContext(ReposContext)
 
 
 //fetches the selected repo
   useEffect(() => {
-    fetch("https://api.github.com/repos/Kennethtml/" + params.name)
+    fetch("https://api.github.com/repos/"+user+"/" + params.name)
       .then((data) => data.json())
       .then((res) => setSelectedRepo(res));
   }, [language]);
@@ -24,7 +26,7 @@ function RepoPage() {
   //fetches the languages used in the repos
   useEffect(() => {
     fetch(
-      "https://api.github.com/repos/Kennethtml/" + params.name + "/languages"
+      "https://api.github.com/repos/" + user + "/" +params.name + "/languages"
     )
       .then((data) => data.json())
       .then((res) => setLanguage(res));

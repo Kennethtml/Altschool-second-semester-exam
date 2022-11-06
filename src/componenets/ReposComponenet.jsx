@@ -24,14 +24,14 @@ function ReposComponenet() {
 
 
   return (
-    <secion className="repos-container">
+    <section className="repos-container">
       <div className="btn-wrapper">
         <ReturnButton />
       </div>
       <div className="repos">
         {currentRepos?.map((repo) => {
           return (
-            <Link className="repo" to={repo.name}>
+            <Link className="repo" to={repo.name} key={repo.id}>
               <h3 className="name">{repo.name}</h3>
               <p className="description">{repo.description}</p>
               {/* <p className="description">{repo.description}</p> */}
@@ -79,7 +79,7 @@ function ReposComponenet() {
           })}
         </div>
       </div>
-    </secion>
+    </section>
   );
 }
 

@@ -1,19 +1,22 @@
 import React from 'react'
-import {useEffect,useState} from 'react'
+import {useEffect,useState,useContext} from 'react'
 import { Link } from 'react-router-dom'
 import {BiGitRepoForked} from 'react-icons/bi'
 import { SlUserFollowing, SlUserFollow } from "react-icons/sl";
 import { Helmet } from 'react-helmet-async';
+import { ReposContext } from '../reposContext';
 
 function Home() {
  
+
+    const{user}=useContext(ReposContext)
    useEffect(()=>{
-    fetch('https://api.github.com/users/kennethtml')
+    fetch('https://api.github.com/users/'+user)
     .then(res=>res.json())
-    .then(data=>setUser(data))
+    .then(data=>setUserData(data))
   },[])
 
-  const[user,setUser]=useState(null)
+  const[userData,setUserData]=useState(null)
   console.log(user)
   return (
     <>
@@ -25,23 +28,23 @@ function Home() {
       <div className="profile-container">
         <div className="profile">
           <div className="image">
-            <img src={user?.avatar_url} alt="" />
+            <img src={userData?.avatar_url} alt="" />
           </div>
           <div className="profile-details">
-            <h1 className="username">{user?.name}</h1>
-            <p className="fullname">{user?.login}</p>
+            <h1 className="username">{userData?.name}</h1>
+            <p className="fullname">{userData?.login}</p>
             {/* <p className="fullname">{user?.bio}</p> */}
             <p className="followers">
               <SlUserFollow />
-              Followers: <span>{user?.followers}</span>
+              Followers: <span>{userData?.followers}</span>
             </p>
             <p className="followers">
               <SlUserFollowing />
-              Following: <span>{user?.following}</span>
+              Following: <span>{userData?.following}</span>
             </p>
             <p className="public_repos">
               <BiGitRepoForked /> Public repos:{" "}
-              <span>{user?.public_repos}</span>
+              <span>{userData?.public_repos}</span>
             </p>
             <Link className="btn-link" to={"/repos"}>
               View repos

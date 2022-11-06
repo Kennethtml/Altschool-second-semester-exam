@@ -18,7 +18,7 @@ function Navigation() {
         </Link>
       
 
-        <Link to={"/error-boundary"} classNameerror-link>test error boundary</Link>
+        <Link to={"/error-boundary"} className="error-link">test error boundary</Link>
       </div>
     </nav>
   );
